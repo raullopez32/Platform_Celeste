@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de LED</title>
+    <style>
+        body {
+            background-color: #40E0D0; /* Turquesa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Para alinear los elementos en columna */
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px; /* Espacio entre el título y los botones */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button.encender {
+            background-color: #32CD32; /* Verde */
+            color: white;
+        }
+
+        button.apagar {
+            background-color: #FF0000; /* Rojo */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Control de LED</h1>
+    <button class="encender" onclick="encenderLed()">Encender LED</button>
+    <button class="apagar" onclick="apagarLed()">Apagar LED</button>
+    
+    <script>
+        function encenderLed() {
+            fetch('/led/on');
+        }
+
+        function apagarLed() {
+            fetch('/led/off');
+        }
+    </script>
+</body>
+</html>
